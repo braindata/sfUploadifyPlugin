@@ -1,0 +1,9 @@
+## YAML Template.
+---
+
+object_file_create:
+  url:     /admin/object/file/:object_class/:object_id/:user_id/create
+  param:   { module: sfUploadifyWidget, action: create }
+  requirements:
+    id: \d+
+    sf_method: [post]
