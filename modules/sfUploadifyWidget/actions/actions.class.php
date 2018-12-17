@@ -14,11 +14,11 @@ class sfUploadifyWidgetActions extends sfActions
     $this->object_id = $request->getParameter('object_id');
     $this->object_class = $request->getParameter('object_class');
     
-    $this->object = Doctrine::getTable($this->object_class)->find($this->object_id);
+    $this->object = Doctrine_Core::getTable($this->object_class)->find($this->object_id);
 
     if ($this->object)
     {
-      $user = Doctrine::getTable("sfGuardUser")->find($request->getParameter("user_id"));
+      $user = Doctrine_Core::getTable("sfGuardUser")->find($request->getParameter("user_id"));
       $this->getUser()->signIn($user);
       
       $file = $request->getFiles("filename");
